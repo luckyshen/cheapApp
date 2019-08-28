@@ -1,0 +1,2 @@
+# cheapApp
+store generalize
