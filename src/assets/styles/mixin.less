@@ -1,0 +1,90 @@
+// 单行文字不换行缩写
+.ellipsis() {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+}
+
+.bor-top{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #e1e7c0;
+  color: #e1e7c0;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+  -webkit-transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+}
+
+.bor-bottom{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #e1e7c0;
+  color: #e1e7c0;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+  -webkit-transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+}
+
+.no-top-bor{
+  border: none;
+}
+// 背景
+.bg( @bg: '', @size: 100% 100% ){
+   background-image: url(@bg);
+   background-size: @size;
+   background-repeat: no-repeat;
+}
+
+//圆角
+.ar(@radius:5px){
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+
+// 默认宽度
+.w(){
+  width: 100%;
+  height: auto;
+  float: left;
+}
+// 清楚浮动
+.clearFloat(){
+  zoom:1;
+  &:after{
+     display:table;
+     content:"";
+     clear:both;
+  }
+}
+//多行省略
+.multiLine(){
+	display: -webkit-box;
+	display: -ms-box;
+	display: box;
+	-webkit-line-clamp: 2;/*2行省略号*/
+	-webkit-box-orient: vertical;
+	-ms-box-orient: vertical;
+	box-orient: vertical;
+	overflow: hidden;
+}
+//7多行省略
+.multiLineSeven(){
+	display: -webkit-box;
+	display: -ms-box;
+	display: box;
+	-webkit-line-clamp: 7;/*7行省略号*/
+	-webkit-box-orient: vertical;
+	-ms-box-orient: vertical;
+	box-orient: vertical;
+	overflow: hidden;
+}

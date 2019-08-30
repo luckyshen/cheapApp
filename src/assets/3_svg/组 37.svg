@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #353a50;
+      }
+
+      .cls-2 {
+        opacity: 0.54;
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <path id="路径_9" data-name="路径 9" d="M20.681,6.274a.855.855,0,0,1,1.254,0,.893.893,0,0,1,0,1.277l-8.956,9.122a.855.855,0,0,1-1.254,0L2.769,7.551a.893.893,0,0,1,0-1.277.855.855,0,0,1,1.254,0l8.329,8.483,8.329-8.483Z" transform="translate(-2.5 -6)"/>
+    </clipPath>
+  </defs>
+  <g id="组_37" data-name="组 37" transform="translate(-665 -918)">
+    <g id="message" transform="translate(397 346)">
+      <rect id="bg" class="cls-1" width="40" height="40" rx="8" transform="translate(268 572)"/>
+    </g>
+    <g id="ico" class="cls-2" transform="translate(680 947.703) rotate(-90)">
+      <rect id="矩形_13" data-name="矩形 13" class="cls-3" width="24.181" height="15.507" transform="translate(-2.239 -2.28)"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="39.428" height="39.428" viewBox="0 0 39.428 39.428">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        opacity: 0.54;
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <path id="路径_1" data-name="路径 1" d="M20.681,6.274a.855.855,0,0,1,1.254,0,.893.893,0,0,1,0,1.277l-8.956,9.122a.855.855,0,0,1-1.254,0L2.769,7.551a.893.893,0,0,1,0-1.277.855.855,0,0,1,1.254,0l8.329,8.483,8.329-8.483Z" transform="translate(-2.5 -6)"/>
+    </clipPath>
+  </defs>
+  <g id="icons_arr" data-name="icons/arr" transform="translate(0 0)">
+    <rect id="back" class="cls-1" width="39.428" height="39.428" transform="translate(0 0)"/>
+    <g id="ico" class="cls-2" transform="translate(9.863 14.241)">
+      <rect id="矩形_3" data-name="矩形 3" class="cls-3" width="24.181" height="15.507" transform="translate(-2.239 -2.28)"/>
+    </g>
+  </g>
+</svg>

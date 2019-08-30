@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="391" height="106" viewBox="0 0 391 106">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3497fd;
+      }
+
+      .cls-2 {
+        filter: url(#bg);
+      }
+    </style>
+    <filter id="bg" x="0" y="0" width="391" height="106" filterUnits="userSpaceOnUse">
+      <feOffset dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="card" transform="translate(8 -518)">
+    <g id="组_24" data-name="组 24">
+      <g class="cls-2" transform="matrix(1, 0, 0, 1, -8, 518)">
+        <path id="bg-2" data-name="bg" class="cls-1" d="M12,0H331a12,12,0,0,1,12,12V46a12,12,0,0,1-12,12H12A12,12,0,0,1,0,46V12A12,12,0,0,1,12,0Z" transform="translate(24 20)"/>
+      </g>
+      <path id="路径_134" data-name="路径 134" class="cls-1" d="M10,0,20,17H0Z" transform="translate(93 522)"/>
+    </g>
+  </g>
+</svg>
