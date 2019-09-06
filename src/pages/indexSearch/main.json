@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-button": "/static/vantWeApp/button/index",
+    "van-field": "/static/vantWeApp/field/index"
+  }
+}

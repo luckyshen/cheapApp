@@ -2,7 +2,29 @@
   "pages": [
     "pages/index/main",
     "pages/logs/main",
-    "pages/counter/main"
+    "pages/counter/main",
+    "pages/application/main",
+    "pages/applicationForm/main",
+    "pages/advertisingAdd/main",
+    "pages/advertisingList/main",
+    "pages/coupon/main",
+    "pages/favorite/main",
+    "pages/indexSearch/main",
+    "pages/message/main",
+    "pages/recently/main",
+    "pages/storeDetail/main",
+    "pages/storeGoodsDetail/main",
+    "pages/storeGoodsList/main",
+    "pages/storeRedPacketaUse/main",
+    "pages/storeRedPacketaUseResult/main",
+    "pages/storeWay/main",
+    "pages/userCenter/main",
+    "pages/userCenterGoodAdd/main",
+    "pages/userCenterGoodList/main",
+    "pages/userInfo/main",
+    "pages/userName/main",
+    "pages/userPhoneNew/main",
+    "pages/userPhoneOld/main"
   ],
   "permission": {
     "scope.userLocation": {

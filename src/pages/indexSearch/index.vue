@@ -236,7 +236,7 @@ export default {
   },
   methods: {
     toUserCenter() {
-      const url = '../application/main';
+      const url = '../userCenter/main';
       wx.navigateTo({ url })
     }, 
     handleMenuClick(index) {
@@ -369,11 +369,11 @@ export default {
     handleScaleReduse() {
       this.scale > 4 && this.scale--;
     },
-    // gaodemap() {
-    //   // var myAmapFun = new AMapWX.AMapWX({ key: 'b3420cbd88c5b8fab29796f3793c3864' });
-    //   // var myAmapFun = new AMapWX.MarkerClusterer();
-    //   // console.log(myAmapFun, '---111');
-    // },
+    gaodemap() {
+      // var myAmapFun = new AMapWX.AMapWX({ key: 'b3420cbd88c5b8fab29796f3793c3864' });
+      // var myAmapFun = new AMapWX.MarkerClusterer();
+      // console.log(myAmapFun, '---111');
+    },
     //进行经纬度转换为距离的计算
     Rad(d) {
       return d * Math.PI / 180.0; //经纬度转换成三角函数中度分表形式。
