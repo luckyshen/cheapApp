@@ -23,10 +23,8 @@
           <bottomline></bottomline>
         </div>
       </li>
-    </ul> -->
-    <van-button type="primary">按钮</van-button>
-    <button @click="toLocation">点击</button>
-    <button @click="handleScale">放大</button>
+    </ul>-->
+    <button open-type="getUserInfo" @getuserinfo="getVxUserInfo">点击授权</button>
 
     <!-- <div class="enlargeAllBg">
       <div class="enlargeBg">
@@ -83,16 +81,13 @@ import QQMapWX from "../../../static/js/qqmap-wx-jssdk";
 import BaiduMapWX from "../../../static/js/bmap-wx";
 import AMapWX from "../../../static/js/amap-wx";
 
-import icons from '@/components/SvgIcon';
-
 export default {
   components: {
-    bottomline,
-    icons
+    bottomline
   },
   data() {
     return {
-      value: '',
+      value: "",
       menuList: [
         {
           label: "附近推荐",
@@ -218,7 +213,9 @@ export default {
         Sarea: "",
         Stype: "",
         distance: ""
-      }
+      },
+      loading: true,
+      userinfo: {}
     };
   },
 
@@ -235,19 +232,140 @@ export default {
     // this.getCurLocationBaidumap();
     // this.getCurLocationQQmap()
     // this.testRequest()
-    this.testGetRequest();
+    // this.testGetRequest();
   },
   methods: {
     toUserCenter() {
-      const url = '../storeDetail/main';
+      const url = "../storeDetail/main";
       wx.navigateTo({ url });
-    }, 
+    },
     handleMenuClick(index) {
       this.menuIndex = index;
     },
     handleCilckMap() {
       this.storeIsShow = false;
       this.enlargeBottom = "6%";
+    },
+    onloadUserInfo() {
+      var that = this;
+      // 查看是否授权
+      wx.getSetting({
+        success: function(res) {
+          if (res.authSetting["scope.userInfo"]) {
+            wx.getUserInfo({
+              success: function(res) {
+                // 用户已经授权过,不需要显示授权页面,所以不需要改变 isHide 的值
+                // 根据自己的需求有其他操作再补充
+                // 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
+                wx.login({
+                  success: res => {
+                    // 获取到用户的 code 之后：res.code
+                    console.log("用户的code:" + res.code);
+                    // 可以传给后台，再经过解析获取用户的 openid
+                    // 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
+                    // wx.request({
+                    //     // 自行补上自己的 APPID 和 SECRET
+                    //     url: 'https://api.weixin.qq.com/sns/jscode2session?appid=自己的APPID&secret=自己的SECRET&js_code=' + res.code + '&grant_type=authorization_code',
+                    //     success: res => {
+                    //         // 获取到用户的 openid
+                    //         console.log("用户的openid:" + res.data.openid);
+                    //     }
+                    // });
+                  }
+                });
+              }
+            });
+          } else {
+            // 用户没有授权
+            // 改变 isHide 的值，显示授权页面
+            that.setData({
+              isHide: true
+            });
+          }
+        }
+      });
+    },
+    getVxUserInfo(e) {
+      if (e.target.userInfo) {
+        this.userName = e.target.userInfo.nickName;
+        this.isCeng = false;
+        console.log(e);
+        this.isLogin();
+      } else {
+        this.userName = "";
+        this.isCeng = true;
+      }
+    },
+    isLogin() {
+      var _this = this;
+      wx.getSetting({
+        success(res) {
+          if (!res.authSetting["scope.userInfo"]) {
+            //未授权getUserInfo
+            wx.authorize({
+              scope: "scope.getUserInfo",
+              success(res) {
+                // 用户已经同意小程序使用用户信息，后续调用 wx.userInfo 接口不会弹窗询问
+                console.log(res);
+                _this.isCeng = false;
+                _this.userName = res.target.userInfo.nickName;
+              },
+              fail(err) {
+                console.log(err);
+              }
+            });
+          } else {
+            //已授权
+            wx.getUserInfo({
+              success(res) {
+                _this.loginOk(res);
+              },
+              fail(err) {
+                console.log(err);
+              }
+            });
+          }
+        }
+      });
+    },
+    loginOk(res) {
+      //登录成功后的信息处理
+      let _this = this;
+      _this.userinfo.encryptedData = res.encryptedData;
+      _this.userinfo.iv = res.iv;
+      _this.userinfo.rawData = res.rawData;
+      _this.userinfo.signature = res.signature;
+      _this.userinfo.infos = res.userInfo;
+      _this.getOpenId();
+      _this.isCeng = false;
+      _this.userName = res.userInfo.nickName;
+      console.log(_this.userinfo);
+    },
+    getOpenId() {
+      //获取用户的openid
+      let _this = this;
+      wx.login({
+        success(res) {
+          if (res.code) {
+            // 发起网络请求
+            wx.request({
+              url: "https://api.weixin.qq.com/sns/jscode2session",
+              data: {
+                appid: this.appId, //开发者appid
+                secret: secret, //开发者AppSecret(小程序密钥)
+                grant_type: "authorization_code", //默认authorization_code
+                js_code: res.code //wx.login登录获取的code值
+              },
+              success(res) {
+                _this.userinfo.openid = res.data.openid;
+                _this.userinfo.session_key = res.data.session_key;
+              }
+            });
+          } else {
+            console.log("登录失败！" + res.errMsg);
+          }
+        }
+      });
     },
     // // 点击气泡回调
     // calloutTap (marker) {
@@ -405,17 +523,17 @@ export default {
       return s;
     },
     async testRequest() {
-      const url = 'http://192.168.96.71:8383/mockLogin'
-      const res = await this.$request(url, 'post', {
-        name: 'shenzhanping',
-        password: 'JUrenszp10'
-      })
-      console.log(res)
+      const url = "http://192.168.96.71:8383/mockLogin";
+      const res = await this.$request(url, "post", {
+        name: "shenzhanping",
+        password: "JUrenszp10"
+      });
+      console.log(res);
     },
     async testGetRequest() {
-      const url = 'http://192.168.39.184/tags'
-      const res = await this.$request(url, 'get', {})
-      console.log(res)
+      const url = "/tags";
+      const res = await this.$request(this.loading, url, "get", {});
+      console.log(res);
     }
   }
 };
