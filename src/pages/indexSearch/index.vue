@@ -2,12 +2,12 @@
   <div>
     <div class="headinputBg">
       <div class="usericon" @click="toUserCenter">
-        <i class="iconicon-1"></i>
+        <!-- <i class="iconicon-1"></i> -->
       </div>
       <div class="tt"></div>
       <input class="inputsearch" type="text" value="123" />
       <div class="searchicon">
-        <i class="iconicon-6"></i>
+        <!-- <i class="iconicon-6"></i> -->
       </div>
     </div>
     <ul class="menuListBg">

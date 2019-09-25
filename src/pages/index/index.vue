@@ -1,13 +1,14 @@
 <template>
   <div>
     <div class="headinputBg">
+      <div id="addlinstion" ref="addlistion">888888</div>
       <div class="usericon" @click="toUserCenter">
-        <i class="iconicon-1"></i>
+        <!-- <i class="iconicon-1"></i> -->
       </div>
       <div class="tt"></div>
       <input class="inputsearch" type="text" value="123" />
       <div class="searchicon">
-        <i class="iconicon-6">11</i>
+        <!-- <i class="iconicon-6"></i> -->
       </div>
     </div>
     <!-- <ul class="menuListBg">
@@ -82,9 +83,12 @@ import QQMapWX from "../../../static/js/qqmap-wx-jssdk";
 import BaiduMapWX from "../../../static/js/bmap-wx";
 import AMapWX from "../../../static/js/amap-wx";
 
+import icons from '@/components/SvgIcon';
+
 export default {
   components: {
-    bottomline
+    bottomline,
+    icons
   },
   data() {
     return {
@@ -229,16 +233,14 @@ export default {
   },
   mounted() {
     // this.getCurLocationBaidumap();
-    this.getCurLocationQQmap();
-
-    // this.getsearchInfo();
-    // this.showClusterPoint();
-    // this.gaodemap();
+    // this.getCurLocationQQmap()
+    // this.testRequest()
+    this.testGetRequest();
   },
   methods: {
     toUserCenter() {
-      const url = '../application/main';
-      wx.navigateTo({ url })
+      const url = '../storeDetail/main';
+      wx.navigateTo({ url });
     }, 
     handleMenuClick(index) {
       this.menuIndex = index;
@@ -401,6 +403,19 @@ export default {
       console.log(s, "---------ss");
 
       return s;
+    },
+    async testRequest() {
+      const url = 'http://192.168.96.71:8383/mockLogin'
+      const res = await this.$request(url, 'post', {
+        name: 'shenzhanping',
+        password: 'JUrenszp10'
+      })
+      console.log(res)
+    },
+    async testGetRequest() {
+      const url = 'http://192.168.39.184/tags'
+      const res = await this.$request(url, 'get', {})
+      console.log(res)
     }
   }
 };
@@ -414,6 +429,10 @@ export default {
 </style>
 <style lang="less" scoped>
 @import "../../assets/styles/mixin.less";
+.card-panel-icon {
+  float: left;
+  font-size: 48px;
+}
 .headinputBg {
   width: 690px;
   height: 86px;

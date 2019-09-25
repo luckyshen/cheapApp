@@ -1,6 +1,3 @@
 {
-  "navigationBarTitleText": "查看启动日志",
-  "usingComponents": {
-    "van-field": "path/to/vant-weapp/dist/field/index"
-  }
+  "navigationBarTitleText": "商品发布"
 }

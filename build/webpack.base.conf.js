@@ -82,6 +82,7 @@ let baseWebpackConfig = {
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
+        exclude: [resolve('src/icons')],
         options: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[ext]')
@@ -103,7 +104,15 @@ let baseWebpackConfig = {
           name: utils.assetsPath('fonts/[name].[ext]')
         }
       },
-      { test: /.less$/, loader: "style-loader!css-loader!less-loader", }
+      { test: /.less$/, loader: "style-loader!css-loader!less-loader", },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        include: [resolve('src/icons')],
+        options: {
+          symbolId: 'icon-[name]'
+        }
+      }
     ]
   },
   plugins: [
@@ -135,7 +144,7 @@ let baseWebpackConfig = {
 const projectConfigMap = {
   tt: '../project.config.json',
   swan: '../project.swan.json'
-}
+};
 
 const PLATFORM = process.env.PLATFORM
 if (/^(swan)|(tt)$/.test(PLATFORM)) {
@@ -146,7 +155,7 @@ if (/^(swan)|(tt)$/.test(PLATFORM)) {
         to: path.resolve(config.build.assetsRoot)
       }])
     ]
-  })
+  });
 }
 
-module.exports = baseWebpackConfig
+module.exports = baseWebpackConfig;
