@@ -7,10 +7,10 @@
       <div class="tt"></div>
       <input class="inputsearch" type="text" value="123" />
       <div class="searchicon">
-        <i class="iconicon-6"></i>
+        <i class="iconicon-6">11</i>
       </div>
     </div>
-    <ul class="menuListBg">
+    <!-- <ul class="menuListBg">
       <li
         v-for="(item, index) in menuList"
         :key="index"
@@ -22,10 +22,10 @@
           <bottomline></bottomline>
         </div>
       </li>
-    </ul>
-    <!-- <van-button type="primary">按钮</van-button>
+    </ul> -->
+    <van-button type="primary">按钮</van-button>
     <button @click="toLocation">点击</button>
-    <button @click="handleScale">放大</button>-->
+    <button @click="handleScale">放大</button>
 
     <!-- <div class="enlargeAllBg">
       <div class="enlargeBg">
@@ -88,6 +88,7 @@ export default {
   },
   data() {
     return {
+      value: '',
       menuList: [
         {
           label: "附近推荐",
