@@ -14,7 +14,19 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* --新加代码-- */
+[class^="iconicon"], [class*=" iconicon"]/*这里有空格*/
 
+{ font-family: "iconfont" !important;
+
+font-size: 16px;
+
+font-style: normal;
+
+-webkit-font-smoothing: antialiased;
+
+-moz-osx-font-smoothing: grayscale; }
+/* --*/
 .iconicon-0:before {
   content: "\e618";
 }

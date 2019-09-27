@@ -3,8 +3,7 @@ import App from './App';
 // less
 import './assets/styles/main.css';
 
-// import '@/assets/icon/iconfont.css'
-// import './icons' // icon
+import '@/assets/icon/iconfont.css'
 import { request } from './utils/request';
 Vue.prototype.$request = request;
 

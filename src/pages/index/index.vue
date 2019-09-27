@@ -1,17 +1,21 @@
 <template>
   <div>
     <div class="headinputBg">
-      <div id="addlinstion" ref="addlistion">888888</div>
       <div class="usericon" @click="toUserCenter">
-        <!-- <i class="iconicon-1"></i> -->
+        <i class="iconicon-1"></i>
       </div>
-      <div class="tt"></div>
-      <input class="inputsearch" type="text" value="123" />
-      <div class="searchicon">
-        <!-- <i class="iconicon-6"></i> -->
+      <div class='searchBg'>
+        <input class="inputsearch" type="text" value="123" />
+        <i class="iconicon-16 searchicon"></i>
+      </div>
+      <div class="scanicon">
+        <i class="iconicon-33"></i>
+      </div>
+      <div class="menulisticon">
+        <i class="iconicon-12"></i>
       </div>
     </div>
-    <!-- <ul class="menuListBg">
+    <ul class="menuListBg">
       <li
         v-for="(item, index) in menuList"
         :key="index"
@@ -23,8 +27,8 @@
           <bottomline></bottomline>
         </div>
       </li>
-    </ul>-->
-    <button open-type="getUserInfo" @getuserinfo="getVxUserInfo">点击授权</button>
+    </ul>
+    <!-- <button open-type="getUserInfo" @getuserinfo="getVxUserInfo">点击授权</button> -->
 
     <!-- <div class="enlargeAllBg">
       <div class="enlargeBg">
@@ -552,54 +556,69 @@ export default {
   font-size: 48px;
 }
 .headinputBg {
-  width: 690px;
-  height: 86px;
-  margin-left: 31px;
+  width: 100%;
+  height: 88px;
+  padding: 16px 34px 0 36px; 
   background: rgba(255, 255, 255, 1);
-  // background: #ccc;
+  background: #ccc;
   box-shadow: 0px 5px 10px rgba(69, 91, 99, 0.08);
-  opacity: 1;
-  border-radius: 12px;
-  // padding: 0.23rem 0.24rem 0.23rem 0.32rem;
   .clearFloat();
   .usericon {
     float: left;
-    width: 116px;
-    height: 100%;
+    width: 60px;
+    height: 56px;
+    margin-right: 15px;
     i {
-      font-size: 0.28rem;
-      line-height: 86px;
-      margin-left: 32px;
-      color: #454f63;
+      font-size: 0.4rem;
+      margin-top: 8px;
+      color: #2B5BE5;
     }
   }
-  .tt {
-    float: left;
-    width: 0.2px;
-    height: 39px;
-    background: rgba(244, 244, 246, 1);
-    opacity: 1;
-    border-radius: 1px;
-    margin-top: 23px;
-  }
-  .inputsearch {
-    padding-left: 36px;
-    padding-right: 30px;
+  .searchBg{
     width: 450px;
-    height: 100%;
-    font-size: 0.28rem;
-    color: #78849e;
+    height: 56px;
+    position: relative;
     float: left;
+    .inputsearch {
+      padding-left: 36px;
+      padding-right: 30px;
+      // width: 450px;
+      // height: 56px;
+      font-size: 0.28rem;
+      color: #939AAE;
+      // float: left;
+      border:2px solid rgba(223,228,233,1);
+      border-radius:28px;
+    }
+    .searchicon {
+      color: #939AAE;
+      font-size: 0.28rem;
+      position: absolute;
+      right: 25px;
+      margin-top: -35px;
+    }
   }
-  .searchicon {
-    width: 50px;
+  
+  .scanicon {
+    // width: 40px;
     height: 100%;
     float: right;
     i {
-      line-height: 86px;
-      margin-right: 24px;
-      font-size: 0.28rem;
-      color: #454f63;
+      font-size: 0.4rem;
+      margin-top: 8px;
+      color: #2B5BE5;
+    }
+  }
+  
+  .menulisticon {
+    // width: 40px;
+    height: 100%;
+    float: right;
+    margin-right: 37px;
+    i {
+      font-size: 0.4rem;
+      margin-top: 8px;
+      color: #2B5BE5;
     }
   }
 }
@@ -610,22 +629,21 @@ export default {
   display: flex;
   overflow-x: auto;
   margin-top: 4px;
-  box-shadow: 0px 5px 10px rgba(69, 91, 99, 0.08);
   li {
     float: left;
     flex: 1;
-    height: 72px;
+    height: 80px;
     position: relative;
-    border-right: 1px solid #f4f4f6;
     min-width: 176px;
-    line-height: 72px;
+    line-height: 80px;
     text-align: center;
-    font-size: 20px;
-    color: #959dad;
+    font-size: 28px;
+    color: #535353;
     .btmLine {
       width: 100%;
+      height:6px;
       position: absolute;
-      margin-top: -10px;
+      margin-top: -4px;
     }
   }
   li:nth(last-child) {

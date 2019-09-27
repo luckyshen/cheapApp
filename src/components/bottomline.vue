@@ -1,39 +1,21 @@
 <template>
-  <ul class="menuBottomLine">
-    <li class="li1"></li>
-    <li class="li2"></li>
-    <li class="li3"></li>
-    <li class="li4"></li>
-  </ul>
+  <div class="menuBottomLine">
+  </div>
 </template>
 
 <script>
 export default {
-  props: ["text"]
+  props: []
 };
 </script>
 
 <style lang="less" scoped>
 @import '../assets/styles/mixin.less';
 .menuBottomLine {
-  display: flex;
-  width: 100%;
-  height: 10px;
-  li {
-    flex: 1;
-    height: 100%;
-  }
-  .li1 {
-    background-color: #665eff;
-  }
-  .li2 {
-    background: #5773ff;
-  }
-  .li3 {
-    background: #3497fd;
-  }
-  .li4 {
-    background: #3acce1;
-  }
+  width:114px;
+  height: 6px;
+  background: #2B5BE5;
+  margin-left: 35px;
+  border-radius:3px;
 }
 </style>

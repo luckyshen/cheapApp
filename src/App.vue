@@ -47,4 +47,10 @@ export default {
   -webkit-transition: width 2s;
   -o-transition: width 2s;
 }
+page{
+  box-sizing: border-box;
+}
+view{
+  box-sizing: border-box;
+}
 </style>
